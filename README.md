@@ -8,7 +8,7 @@ sudo rosdep init
 rosdep update
 ```
 
-![image](https://user-images.githubusercontent.com/92040822/194984951-6c15ca19-ef70-459a-bc1d-c3dcbed8acb9.png)
+![image](https://github.com/thapapradeep884/IMAGE/blob/main/p1.PNG)
 
 
 Finally, we may install dependencies using rosdep install. To install all dependencies, this is frequently run just once in a workspace with many packages. A call for that might appear as follows if the source-code-containing directory src was present in the workspace's root.
@@ -16,7 +16,7 @@ Finally, we may install dependencies using rosdep install. To install all depend
 ```
 rosdep install --from-paths src -y --ignore-src
 ```
-![image](https://user-images.githubusercontent.com/92040822/194985049-f97687a2-a070-432b-8d50-15b0e4f318d9.png)
+![image](https://github.com/thapapradeep884/IMAGE/blob/main/p2.PNG)
 
 # Creating an action
 
@@ -34,7 +34,7 @@ cd ros2_ws/src
 ros2 pkg create action_tutorials_interfaces
 ```
 
-![image](https://user-images.githubusercontent.com/92040822/194985781-d285bf6d-dc69-4898-b207-e77806cc20ab.png)
+![image](https://github.com/thapapradeep884/IMAGE/blob/main/p3.PNG)
 
 ## Tasks
 ## 1. Defining an action
@@ -55,7 +55,7 @@ cd action_tutorials_interfaces
 mkdir action
 ```
 
-![image](https://user-images.githubusercontent.com/92040822/194997859-cf7b8875-7ee6-4fb1-ad5d-61ea9c9b3ec8.png)
+![image](https://github.com/thapapradeep884/IMAGE/blob/main/p4.PNG)
 
 
 In the action directory, create a file with the name Fibonacci. action that contains the information below:
