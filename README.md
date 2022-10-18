@@ -721,8 +721,9 @@ The following messages are displayed in two open turtlesim windows:
 ![image](https://github.com/thapapradeep884/IMAGE/blob/main/p29.PNG)
 
 _In order to see the sytem in action, we open a new terminal and run the `ros2 topic pub` command on `/turtlesim1/turtle1/cmd_vel` topic to get the first turtle moving._
+```ros2 topic pub -r 1 /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}" ```
 
-![image](https://user-images.githubusercontent.com/113494159/196021849-9b6d5512-284c-4d28-a696-afa934e750f8.png)
+![image](https://github.com/thapapradeep884/IMAGE/blob/main/p30.PNG)
 
 **Both the turtle move in the same path.**
 
@@ -735,7 +736,7 @@ Without shutting down the machine, open a new terminal and run "rqt graph."
 rqt_graph
 ```
 
-![image](https://user-images.githubusercontent.com/113494159/196022052-e8d67387-577a-41e9-916b-c4ac211548a6.png)
+![image](https://github.com/thapapradeep884/IMAGE/blob/main/p31.PNG)
 
 
 ### 6.Integrating launch files into ROS2 packages
@@ -760,7 +761,7 @@ ros2 pkg create py_launch_example --build-type ament_python
 
 When searching for python packages after creating them, do the following.:
 
-![image](https://user-images.githubusercontent.com/113494159/196022501-78722f24-c268-4341-a589-706e7336f8eb.png)
+![image](https://github.com/thapapradeep884/IMAGE/blob/main/p32.PNG)
 
 And we need to tell Python's setup tools about our launch files using the 'data files' argument of'setup' in order to colcon to launch files.
 
