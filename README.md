@@ -536,53 +536,50 @@ python3 fibonacci_action_client.py
 
 **4.1. To discover avilable components**
 
-_In order to check the available components in the workspace, we run the following commands._
+We issue the following commands to check the workspace's accessible components.
 
 ```
 ros2 component types
 ```
 
-The terminal returns all the available components:
+The terminal returns all of the components that are available:
 
 ![image](https://github.com/thapapradeep884/IMAGE/blob/main/p18.PNG)
 
 **4.2. Run-time composition using ROS services with a publisher and subscriber**
 
-Firstly, we start the component container in one terminal :
+In the first terminal, we launch the component container:
 
 ```
 ros2 run rclcpp_components component_container
 ```
 
-In order to verify that the container is running via `ros2` command line tools, we run following command in the second terminal which will show a name of the component as an output.
+We perform the following command in the second terminal, and it will output the name of the component, allowing us to confirm that the container is running using the 'ros2' command line tools.
 
 ```
 ros2 component list
 ```
-
-After this step, in the second terminal, we load the talker component:
+Following this, we load the talker component on the second terminal:
 
 ```
 ros2 component load /ComponentManager composition composition::Talker
 ```
 
-This command will return the unique ID of the loaded component as well as the name of the node:
+This command will return the node name and the distinctive ID of the loaded component:
 
 ![image](https://github.com/thapapradeep884/IMAGE/blob/main/p19.PNG)
 
 ![image](https://github.com/thapapradeep884/IMAGE/blob/main/p20.PNG)
 ![image](https://github.com/thapapradeep884/IMAGE/blob/main/p21.PNG)
 
-After this, we run following code in the second terminal in order to load the listener component:
+The listener component is then loaded by running the code below on the second terminal:
 
 ```
 ros2 component load /ComponentManager composition composition::Listener
 ```
+The results are displayed in the pictures up top.
 
-The output is shown in the images above.
-
-
-Finally we can run the `ros2` command line utility to inspect the state of the container:
+Finally, we may launch the 'ros2' command-line tool to check the container's state:
 
 ```
 ros2 component list
@@ -607,14 +604,13 @@ In the first terminal, we run:
 ros2 run rclcpp_components component_container
 ```
 
-and after that, in the second terminal, we run following commands to see **server** and **client** source code:
+and then we run the following commands in the second terminal to view the **server** and **client** source code:
 
 ```
 ros2 component load /ComponentManager composition composition::Server
 ros2 component load /ComponentManager composition composition::Client
 ```
-
-We can see the output of the above commands as in the following images:
+The output of the aforementioned commands may be seen in the images below:
 
 ![image](https://github.com/thapapradeep884/IMAGE/blob/main/p22.PNG)
 
@@ -622,9 +618,9 @@ We can see the output of the above commands as in the following images:
 
 **4.4. Compile-time composition using ROS services**
 
-By using this demonstration, it shows that the same shared libraries can be reused to compile a single executable running multiple components. 
+This example demonstrates how the same shared libraries may be used to create a single executable that runs a number of different components.
 
-The executable contains all four components from above : `talker`, `listener`, `server`, and `client`.
+All four of the aforementioned elements—the "talker," "listener," "server," and "client"—are included in the executable.
 
 In one terminal, 
 
@@ -637,7 +633,7 @@ ros2 run composition manual_composition
 
 **4.5. Run-time composition using dlopen**
 
-This demonstration shows an alternative to run-time composition by creating a generic container process an explicity passing the libraries to load without using ROS interfaces. The process will open each library and create one instance of each "rclcpp::Node" class in the library source code.
+By constructing a generic container process and explicitly passing the libraries to load without using ROS interfaces, this demonstration provides an alternative to run-time composition. Each library will be opened by the procedure, and one instance of each "rclcpp::Node" class will be created in the library's source code.
 
 
 ```
@@ -649,7 +645,7 @@ ros2 run composition dlopen_composition `ros2 pkg prefix composition`/lib/libtal
 
 **4.6. Composition using launch actions**
 
-While the command line tools are helpful for troubleshooting and diagnosing component setups, starting a group of components at once is frequently more practical. We can make use of `ros2` launch's functionality to automate this process.
+Although the command line tools are useful for troubleshooting and diagnosing component configurations, it is frequently more practical to start a number of components at once. The 'ros2' launch's functionality can be used to automate this procedure.
 
 ```
 ros2 launch composition composition_demo.launch.py
@@ -660,17 +656,18 @@ ros2 launch composition composition_demo.launch.py
 
 ### 5.Creating a launch file
 
-In order to create a launch file, we use the `rqt_graph` and `turtlesim` packages which we have already installed previously.
+The 'rqt graph' and 'turtlesim' packages that we previously loaded are used to construct a launch file.
 
 **5.1. Setup**
 
-We need to create a new directory to store the launch files:
+To store the launch files, we must make a new directory:
 
 ```
 mkdir launch
 ```
 
 **5.2. Writing the launch file**
+
 
 In the newly created directory, we created a new file named `turtlesim_mimic_launch.py` and paste the following codes into the file:
 
@@ -706,7 +703,7 @@ def generate_launch_description():
 
 **5.3. ros2 launch**
 
-In order to run the launch file created, we enter into the earlier created directory and run the following commands:
+We enter the previously generated directory and issue the following commands to launch the launch file:
 
 ```
 cd launch
@@ -717,7 +714,7 @@ The output is shown in the image below:
 
 ![image](https://github.com/thapapradeep884/IMAGE/blob/main/p27.PNG)
 
-Two turtlesim windows are opened with the above messages:
+The following messages are displayed in two open turtlesim windows:
 
 ![image](https://github.com/thapapradeep884/IMAGE/blob/main/p28.PNG)
 
@@ -732,7 +729,7 @@ _In order to see the sytem in action, we open a new terminal and run the `ros2 t
 
 **5.4. Introspect the system with rqt_graph**
 
-Open the new terminal without closing the system and we run `rqt_graph`.
+Without shutting down the machine, open a new terminal and run "rqt graph."
 
 ```
 rqt_graph
@@ -745,7 +742,7 @@ rqt_graph
 
 **6.1. Creating a package**
 
-Firstly, we create a workspace for the package:
+In the beginning, we make a workspace for the package:
 
 ```
 mkdir -p launch_ws/src
@@ -761,13 +758,13 @@ ros2 pkg create py_launch_example --build-type ament_python
 
 **6.2. Creating the structure to hold launch files **
 
-After creating the packages, it should be looking as follows for python package:
+When searching for python packages after creating them, do the following.:
 
 ![image](https://user-images.githubusercontent.com/113494159/196022501-78722f24-c268-4341-a589-706e7336f8eb.png)
 
-And in order to colcon to launch files, we need to inform Python's setup tools of our launch files using the `data_files` parameter of `setup`.
+And we need to tell Python's setup tools about our launch files using the 'data files' argument of'setup' in order to colcon to launch files.
 
-Inside, `setup.py` file, we input the following codes:
+We enter the following codes within the "setup.py" file:
 
 ```python
 import os
@@ -788,8 +785,8 @@ setup(
 
 **6.3. Writing the launch file**
 
-Inside the `launch` directory, we create a new launch file named `my_script_launch.py`.
-Here, the launch file should define the `generate_launch_description()` function which returns a `launch.LaunchDescription() to be used by the `ros2 launch` verb.
+We create a brand-new launch file called "my script launch.py" inside the "launch" directory.
+The 'generate launch description()' function, which provides a 'launch.LaunchDescription()' to be utilized by the 'ros2 launch' verb, should be defined in the launch file at this point.
 
 ```python
 import launch
@@ -806,13 +803,12 @@ def generate_launch_description():
 
 **6.4. Building and running the launch file**
 
-We go to top-level of the workspace and build the file using:
+We navigate to the workspace's top level and create the file using:
 
 ```
 colcon build
 ```
-
-Once the build is successful, we should be able to run the launch file as follows:
+If the build goes well, we should be able to launch the program as follows:
 
 ```
 ros2 launch py_launch_example my_script_launch.py
@@ -827,14 +823,13 @@ We create a new package of build_type `ament_python` named `launch_tutorial` :
 ```
 ros2 pkg create launch_tutorial --build-type ament_python
 ```
-
-and inside of that package, we create a directory called `launch`.
+Now we build a directory called "launch" inside of that package.
 
 ```
 mkdir launch_tutorial/launch
 ```
 
-After that, we edit the `setup.py` file and add in changes so that launch file will be installed successfully. 
+The launch file is then successfully installed by editing the "setup.py" file and adding the necessary adjustments.
 
 ```python
 import os
@@ -854,8 +849,7 @@ setup(
 ```
 
 **7.2. Parent Launch File**
-
-After the above steps, we created a launch file named : `example_main.launch.py` in the launch folder of the `launch_tutorial` directory with the following codes in it:
+Following the aforementioned procedures, we produced a launch file with the following codes in it called "example main.launch.py" in the launch folder of the "launch tutorial" directory:
 
 ```python
 from launch_ros.substitutions import FindPackageShare
@@ -890,7 +884,7 @@ def generate_launch_description():
 
 **7.3. Substitutions example launch file**
 
-A new file is created in the same folder: `example_substitutions.launch.py`
+The same folder receives a new file called "example substitutions.launch.py"
 
 ```python
 from launch_ros.actions import Node
@@ -986,21 +980,19 @@ colcon build
 
 **7.5. Launching Example**
 
-Now we are able to run the `example_main.launch.py` file using the `ros2 launch` command. 
+Now we can use the ros2 launch command to run the example main.launch.py file.
 
 ```
 ros2 launch launch_tutorial example_main.launch.py
 ```
 
 ![image](https://user-images.githubusercontent.com/113494159/196023691-55605922-f633-4f1a-b057-47543e52db44.png)
-
-A turtlesim node is started with a blue background. After that second turtle is spawned and the background color is changed to purple and pink respectively.
+A turtlesim node is launched against a blue backdrop. The backdrops then shift between purple and pink as a second turtle hatches.
 
 ### 8.Using Event Handlers
 
 **8.1. Event handler example launch file**
-
-We created a new file named: `example_event_handlers.launch.py` in the same directory.. i.e. inside `launch` folder of `launch_tutorial` package.
+We made a new file called "example event handlers.launch.py" in the same directory, which is inside the "launch" folder of the "launch tutorial" package.
 
 ```python
 from launch_ros.actions import Node
@@ -1139,22 +1131,22 @@ def generate_launch_description():
     ])
 ```
 
-**8.2. Building and Running the Command**
+**8.2. Building and Running the CommandWe return to the workspace's root after adding the file and execute the build command there.**
 
-After adding the file, we go back to the root of the workspace and run the build command there.
+We return to the workspace's root after adding the file and execute the build command there.
 ```
 colcon build
 ```
-
 After building, it is important to source the package and run the following codes for the output:
+
 
 ros2 launch launch_tutorial example_event_handlers.launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
 
 
 ![image](https://user-images.githubusercontent.com/113494159/196024114-0e8025ee-186e-4b6c-bc8a-5f518d23b78d.png)
 
-It start a turtlesim node with a blue background and spawn the second turtle. After that, it change the background color to purple and then to pink.
-If the turtlesim window is closed, it shutdown the launch file. 
+It spawns the second turtle and starts a turtlesim node with a blue backdrop. The background color then changes to pink and then purple.
+When the turtlesim window closes, the launch file also shuts down. 
 
 
 
